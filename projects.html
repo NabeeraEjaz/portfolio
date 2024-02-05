@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project.css">
+    <title>Nabeera Ejaz</title>
+</head>
+
+<body>
+    <div class="box1">
+        <p>Showcasing some of my work</p>
+        <h1>Projects</h1>
+        <div class="ani"></div>
+    </div>
+    <div class="box2">
+    <table>
+        <thead>
+            <tr>
+                <th>Sr.no.</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <button onclick="fetchData()">Display Projects</button>
+    </div>
+    <script>
+        function fetchData() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.querySelector('tbody').innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "fetchdata.php", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
